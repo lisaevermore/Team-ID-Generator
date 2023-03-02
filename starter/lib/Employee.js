@@ -24,11 +24,14 @@ class Employee{
     getEmail(){
         return this.email
     }
-    GetRole(){
+    getRole(){
         mdash
         return 'Employee';
     }
 }
 
-module.exports = Employee;
+
+
+
+module.exports = {Employee};
    
