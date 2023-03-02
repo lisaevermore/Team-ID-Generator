@@ -106,4 +106,36 @@ function promptEngineer(){
 
 }
 
+function promptIntern(){
+    return inquirer.prompt([
+        {
+          type: 'input',
+          message: 'Enter the Intern name:',
+          name: 'name',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Intern employee ID:',
+          name: 'id',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Intern email address:',
+          name: 'email',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Intern School name:',
+          name: 'school',
+        },
+      ]).then((responses) => {
+        const { name, id, email, school } = responses;
+        const intern = new Intern(name, id, email, school);
+        teamMembers.push(intern);
+        console.log('A Intern had been added to team!');
+         promptAddTeamMember();
+      });
+    
+}
+
 promptManager()
