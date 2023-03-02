@@ -72,6 +72,38 @@ function promptAddTeamMember() {
           break;
       }
     });
-  }
+}
+
+function promptEngineer(){
+    return inquirer.prompt([
+        {
+          type: 'input',
+          message: 'Enter the Engineer name:',
+          name: 'name',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Engineer employee ID:',
+          name: 'id',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Engineer email address:',
+          name: 'email',
+        },
+        {
+          type: 'input',
+          message: 'Enter the Engineer GitHub:',
+          name: 'github',
+        },
+      ]).then((responses) => {
+        const { name, id, email, github } = responses;
+        const engineer = new Engineer(name, id, email, github);
+        teamMembers.push(engineer);
+        console.log('An Engineer had been added to team!');
+         promptAddTeamMember();
+      });
+
+}
 
 promptManager()
