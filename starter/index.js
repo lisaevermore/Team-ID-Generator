@@ -42,7 +42,36 @@ function promptManager() {
     const manager = new Manager(name, id, email, officeNumber);
     teamMembers.push(manager);
     console.log('Manager added to team roster!');
+    promptAddTeamMember()
   });
 }
+
+function promptAddTeamMember() {
+    return inquirer.prompt([
+      {
+        type: 'list',
+        message: 'What type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', 'Finish building the team'],
+        name: 'memberType',
+      },
+    ]).then((response) => {
+      switch (response.memberType) {
+        case 'Engineer':
+          promptEngineer();
+          break;
+        case 'Intern':
+          promptIntern();
+          break;
+        case 'Finish building the team':
+          console.log('Team roster building completed!');
+          // call function to generate HTML and write to file
+          outputPath();
+          break;
+        default:
+          console.error('Unknown member type:', response.memberType);
+          break;
+      }
+    });
+  }
 
 promptManager()
