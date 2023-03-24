@@ -21,3 +21,9 @@ This project uses Jest for running unit tests and Inquirer for collecting input 
 
 ### Mock-Up
 The generated HTML's appearance and functionality should resemble the following image:
+
+![screencapture-127-0-0-1-5500-starter-index-html-2023-03-24-00_14_22](https://user-images.githubusercontent.com/70776430/227391804-e4988b20-128a-4f3b-81ea-688dabd0c607.png)
+
+### DOMO
+https://user-images.githubusercontent.com/70776430/227395415-fa1a7d15-3839-4f7d-aa7d-7876c6c5d856.mp4
+
