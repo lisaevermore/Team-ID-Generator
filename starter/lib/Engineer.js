@@ -7,8 +7,7 @@ class Engineer extends Employee {
       this.github = github;
     }
   
-    github() {
-        '&mdash';
+    getGithub() {
       return this.github;
     }
   
@@ -16,4 +15,4 @@ class Engineer extends Employee {
       return 'Engineer';
     }
   }
-  module.exports = {Engineer};
+  module.exports = Engineer;

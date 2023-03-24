@@ -14,6 +14,7 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
 const teamMembers = [];
+const breakLine = ('===============================');
 
 function promptManager() {
   return inquirer.prompt([
@@ -41,7 +42,12 @@ function promptManager() {
     const { name, id, email, officeNumber } = responses;
     const manager = new Manager(name, id, email, officeNumber);
     teamMembers.push(manager);
+
+    console.log(breakLine);
     console.log('Manager added to team roster!');
+    console.log(breakLine);
+    console.log(manager);
+    
     promptAddTeamMember()
   });
 }
@@ -63,12 +69,19 @@ function promptAddTeamMember() {
           promptIntern();
           break;
         case 'Finish building the team':
+          console.log(breakLine);
           console.log('Team roster building completed!');
-          // call function to generate HTML and write to file
-          outputPath();
+          console.log(breakLine);
+          let teamHtml = render(teamMembers);
+          // console.log(teamHtml);
+   
+          fs.writeFileSync("index.html",teamHtml)
+          
           break;
         default:
+            console.log(breakLine);
           console.error('Unknown member type:', response.memberType);
+          console.log(breakLine);
           break;
       }
     });
@@ -100,8 +113,12 @@ function promptEngineer(){
         const { name, id, email, github } = responses;
         const engineer = new Engineer(name, id, email, github);
         teamMembers.push(engineer);
+        console.log(breakLine);
         console.log('An Engineer had been added to team!');
-         promptAddTeamMember();
+        console.log(breakLine);
+
+        console.log(engineer)
+        promptAddTeamMember();
       });
 
 }
@@ -132,10 +149,12 @@ function promptIntern(){
         const { name, id, email, school } = responses;
         const intern = new Intern(name, id, email, school);
         teamMembers.push(intern);
+        console.log(breakLine);
         console.log('A Intern had been added to team!');
+        console.log(breakLine);
+        console.log(intern);
          promptAddTeamMember();
       });
-    
 }
 
-promptManager()
+promptManager();

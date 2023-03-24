@@ -7,8 +7,7 @@ class Intern extends Employee {
       this.school = school;
     }
   
-    school() {
-        '&mdash';
+    getSchool() {
       return this.school;
     }
   
@@ -16,4 +15,4 @@ class Intern extends Employee {
       return 'Intern';
     }
   }
-  module.exports = {Intern};
+  module.exports = Intern;

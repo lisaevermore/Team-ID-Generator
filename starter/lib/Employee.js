@@ -25,13 +25,12 @@ class Employee{
         return this.email
     }
     getRole(){
-        mdash
-        return 'Employee';
+        return "Employee";
     }
 }
 
 
 
+module.exports = Employee;
 
-module.exports = {Employee};
    
